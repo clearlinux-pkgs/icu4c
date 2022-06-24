@@ -4,7 +4,7 @@
 #
 Name     : icu4c
 Version  : 70.1
-Release  : 29
+Release  : 30
 URL      : https://github.com/unicode-org/icu/releases/download/release-70-1/icu4c-70_1-src.tgz
 Source0  : https://github.com/unicode-org/icu/releases/download/release-70-1/icu4c-70_1-src.tgz
 Summary  : International Components for Unicode
@@ -145,7 +145,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1640904447
+export SOURCE_DATE_EPOCH=1656043749
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -186,7 +186,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 pushd source; make %{?_smp_mflags} check; popd
 
 %install
-export SOURCE_DATE_EPOCH=1640904447
+export SOURCE_DATE_EPOCH=1656043749
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/icu4c
 cp %{_builddir}/icu/LICENSE %{buildroot}/usr/share/package-licenses/icu4c/dbcb5c4a57f45a48c971c06928a7c99fb5656f06
@@ -212,7 +212,7 @@ popd
 pushd source
 %make_install
 popd
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -477,6 +477,24 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicudata.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicudata.so.70
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicudata.so.70.1
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicui18n.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicui18n.so.70
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicui18n.so.70.1
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicuio.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicuio.so.70
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicuio.so.70.1
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicutest.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicutest.so.70
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicutest.so.70.1
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicutu.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicutu.so.70
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicutu.so.70.1
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicuuc.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicuuc.so.70
+/usr/lib64/glibc-hwcaps/x86-64-v3/libicuuc.so.70.1
 /usr/lib64/libicudata.so.70
 /usr/lib64/libicudata.so.70.1
 /usr/lib64/libicui18n.so.70
@@ -489,7 +507,6 @@ popd
 /usr/lib64/libicutu.so.70.1
 /usr/lib64/libicuuc.so.70
 /usr/lib64/libicuuc.so.70.1
-/usr/share/clear/optimized-elf/lib*
 
 %files lib32
 %defattr(-,root,root,-)
