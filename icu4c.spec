@@ -4,7 +4,7 @@
 #
 Name     : icu4c
 Version  : 70.1
-Release  : 30
+Release  : 31
 URL      : https://github.com/unicode-org/icu/releases/download/release-70-1/icu4c-70_1-src.tgz
 Source0  : https://github.com/unicode-org/icu/releases/download/release-70-1/icu4c-70_1-src.tgz
 Summary  : International Components for Unicode
@@ -145,7 +145,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656043749
+export SOURCE_DATE_EPOCH=1656126146
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -186,7 +186,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 pushd source; make %{?_smp_mflags} check; popd
 
 %install
-export SOURCE_DATE_EPOCH=1656043749
+export SOURCE_DATE_EPOCH=1656126146
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/icu4c
 cp %{_builddir}/icu/LICENSE %{buildroot}/usr/share/package-licenses/icu4c/dbcb5c4a57f45a48c971c06928a7c99fb5656f06
