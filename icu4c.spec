@@ -4,7 +4,7 @@
 #
 Name     : icu4c
 Version  : 70.1
-Release  : 33
+Release  : 34
 URL      : https://github.com/unicode-org/icu/releases/download/release-70-1/icu4c-70_1-src.tgz
 Source0  : https://github.com/unicode-org/icu/releases/download/release-70-1/icu4c-70_1-src.tgz
 Summary  : International Components for Unicode
