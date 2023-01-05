@@ -6,7 +6,7 @@
 #
 Name     : icu4c
 Version  : 70.1
-Release  : 36
+Release  : 37
 URL      : https://github.com/unicode-org/icu/releases/download/release-70-1/icu4c-70_1-src.tgz
 Source0  : https://github.com/unicode-org/icu/releases/download/release-70-1/icu4c-70_1-src.tgz
 Source1  : https://github.com/unicode-org/icu/releases/download/release-70-1/icu4c-70_1-src.tgz.asc
