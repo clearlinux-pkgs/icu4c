@@ -7,7 +7,7 @@
 #
 Name     : icu4c
 Version  : 73.1
-Release  : 39
+Release  : 40
 URL      : https://github.com/unicode-org/icu/releases/download/release-73-1/icu4c-73_1-src.tgz
 Source0  : https://github.com/unicode-org/icu/releases/download/release-73-1/icu4c-73_1-src.tgz
 Source1  : https://github.com/unicode-org/icu/releases/download/release-73-1/icu4c-73_1-src.tgz.asc
@@ -142,7 +142,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683486392
+export SOURCE_DATE_EPOCH=1685552503
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -183,9 +183,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 pushd source; make %{?_smp_mflags} check; popd
 
 %install
-export SOURCE_DATE_EPOCH=1683486392
+export SOURCE_DATE_EPOCH=1685552503
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/icu4c
+cp %{_builddir}/icu/LICENSE %{buildroot}/usr/share/package-licenses/icu4c/68693549ac10f254414f549cb11901d27da3220b || :
 cp %{_builddir}/icu/license.html %{buildroot}/usr/share/package-licenses/icu4c/06e7821c4127e21850f5c981698443b6f31e0ef1 || :
 pushd ../build32/source
 %make_install32
@@ -270,12 +271,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libicudata.so
-/V3/usr/lib64/libicui18n.so
-/V3/usr/lib64/libicuio.so
-/V3/usr/lib64/libicutest.so
-/V3/usr/lib64/libicutu.so
-/V3/usr/lib64/libicuuc.so
 /usr/include/unicode/alphaindex.h
 /usr/include/unicode/appendable.h
 /usr/include/unicode/basictz.h
@@ -498,17 +493,11 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libicudata.so.73
 /V3/usr/lib64/libicudata.so.73.1
-/V3/usr/lib64/libicui18n.so.73
 /V3/usr/lib64/libicui18n.so.73.1
-/V3/usr/lib64/libicuio.so.73
 /V3/usr/lib64/libicuio.so.73.1
-/V3/usr/lib64/libicutest.so.73
 /V3/usr/lib64/libicutest.so.73.1
-/V3/usr/lib64/libicutu.so.73
 /V3/usr/lib64/libicutu.so.73.1
-/V3/usr/lib64/libicuuc.so.73
 /V3/usr/lib64/libicuuc.so.73.1
 /usr/lib64/libicudata.so.73
 /usr/lib64/libicudata.so.73.1
@@ -541,6 +530,7 @@ popd
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/icu4c/06e7821c4127e21850f5c981698443b6f31e0ef1
+/usr/share/package-licenses/icu4c/68693549ac10f254414f549cb11901d27da3220b
 
 %files man
 %defattr(0644,root,root,0755)
